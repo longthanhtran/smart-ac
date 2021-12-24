@@ -12,6 +12,9 @@ class AcTest < ActiveSupport::TestCase
     assert_not_nil ac.save
   end
 
-  test "can not save invalid ac" do
+  test "invalid ac without serial number does not get saved" do
+    invalid_ac = Ac.new(@invalid_ac)
+    refute ac.valid?
+    assert_not_nil ac.errors
   end
 end
