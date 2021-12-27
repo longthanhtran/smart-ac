@@ -1,5 +1,5 @@
 module Api
-  class AcsController < ActionController::API
+  class AcsController < ApiController
     def index
       @acs = Ac.all
       render json: @acs
