@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :acs
+    resources :ac_statuses
   end
   # Defines the root path route ("/")
   # root "articles#index"
