@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_24_121517) do
+ActiveRecord::Schema.define(version: 2021_12_27_100017) do
 
   create_table "ac_sensor_statuses", force: :cascade do |t|
     t.string "serial_number", null: false
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2021_12_24_121517) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["serial_number"], name: "serial_number_idx", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", limit: 255, null: false
+    t.string "password_digest"
+    t.string "reset_token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "users_email_idx", unique: true
   end
 
   add_foreign_key "ac_sensor_statuses", "acs", column: "serial_number", primary_key: "serial_number"
