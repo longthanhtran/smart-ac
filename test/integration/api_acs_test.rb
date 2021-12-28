@@ -3,7 +3,7 @@ require "test_helper"
 class ApiAcsTest < ActionDispatch::IntegrationTest
   setup do
     @ac = create(:ac)
-    @new_ac = build(:ac)
+    @new_ac = build(:random_ac)
     @invalid_ac = build(:ac, serial_number: nil)
   end
 

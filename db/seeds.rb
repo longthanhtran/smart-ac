@@ -5,4 +5,5 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Ac.create(serial_number: "ABCD1234", registration_date: "2021-12-23", firmware_version: "MOTO1")
+
+User.create(email: 'long@example.com', password: 's3cret!22', password_confirmation: 's3cret!22')
