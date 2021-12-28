@@ -30,8 +30,9 @@ class ApiAcsTest < ActionDispatch::IntegrationTest
 
   test "should not register duplicate serial_number ac" do
     ac = @new_ac.serializable_hash
-    post api_acs_url, params: { ac: ac }
-    post api_acs_url, params: { ac: ac }
+    2.times do
+      post api_acs_url, params: { ac: ac }
+    end
     assert_response :unprocessable_entity
   end
 end

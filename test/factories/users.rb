@@ -14,4 +14,8 @@ FactoryBot.define do
     password { "s3cret" }
     password_confirmation { "s3cret" }
   end
+
+  factory :new_user, class: 'User' do
+    email { Faker::Internet.email }
+  end
 end
