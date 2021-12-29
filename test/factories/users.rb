@@ -7,6 +7,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { user_password }
     password_confirmation { user_password }
+    active { true }
   end
 
   factory :long, class: "User" do
@@ -17,5 +18,7 @@ FactoryBot.define do
 
   factory :new_user, class: 'User' do
     email { Faker::Internet.email }
+    password { "s3cret" }
+    password_confirmation { "s3cret" }
   end
 end

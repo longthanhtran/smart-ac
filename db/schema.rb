@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_27_100017) do
+ActiveRecord::Schema.define(version: 2021_12_29_015842) do
 
   create_table "ac_sensor_statuses", force: :cascade do |t|
     t.string "serial_number", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_12_27_100017) do
     t.string "reset_token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "active", default: false
     t.index ["email"], name: "users_email_idx", unique: true
   end
 

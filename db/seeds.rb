@@ -7,3 +7,4 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 User.create(email: 'long@example.com', password: 's3cret!22', password_confirmation: 's3cret!22')
+User.create(email: 'long.tran@example.com', password: 's3cret!22', password_confirmation: 's3cret!22')
