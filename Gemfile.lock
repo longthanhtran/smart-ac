@@ -123,6 +123,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    minitest-stub_any_instance (1.0.3)
     msgpack (1.4.2)
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-darwin)
@@ -218,6 +219,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   minitest-reporters
+  minitest-stub_any_instance
   puma (~> 5.0)
   rails (~> 7.0.0)
   redis (~> 4.0)

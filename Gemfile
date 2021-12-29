@@ -73,4 +73,5 @@ group :test do
   gem 'minitest-reporters'
   gem 'faker'
   gem 'database_cleaner-active_record'
+  gem 'minitest-stub_any_instance'
 end

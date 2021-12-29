@@ -4,6 +4,7 @@ require "rails/test_help"
 
 require 'database_cleaner/active_record'
 require 'minitest/reporters'
+require 'minitest/stub_any_instance'
 
 DatabaseCleaner.strategy = :transaction
 

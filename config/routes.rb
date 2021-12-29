@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  get 'users', to: "users#index"
+  patch 'users', to: "users#update"
+  get 'users/show/:id', to: "users#show"
+
   get 'sign_up', to: "registration#new"
   post 'sign_up', to: "registration#create"
 
