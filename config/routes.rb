@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  resources :acs
+  # resources :acs
+  get 'acs', to: "acs#index"
+  get 'acs/:id', to: "acs#show", as: :ac
+  get 'acs/serial_number/show', to: "acs#show_by_sn", as: :show_by_sn
 
   namespace :api do
     resources :acs

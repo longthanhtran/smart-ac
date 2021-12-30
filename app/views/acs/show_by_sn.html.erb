@@ -1,6 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @ac %>
+<% if @ac %>
+  <%= render @ac %>
+<% end %>
 
 <div>
   <%= link_to "Back to acs", acs_path %>

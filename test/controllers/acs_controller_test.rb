@@ -13,23 +13,6 @@ class AcsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "should get new" do
-    Current.stub_any_instance(:user, @user) do
-      get new_ac_url
-      assert_response :success
-    end
-  end
-
-  test "should create ac" do
-    Current.stub_any_instance(:user, @user) do
-      assert_difference("Ac.count") do
-        post acs_url, params: { ac: { firmware_version: @ac.firmware_version, registration_date: @ac.registration_date, serial_number: Faker::Code::nric } }
-      end
-
-      assert_redirected_to ac_url(Ac.last)
-    end
-  end
-
   test "should show ac" do
     Current.stub_any_instance(:user, @user) do
       get ac_url(@ac)
@@ -37,27 +20,20 @@ class AcsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "should get edit" do
+  test "should look for an ac by a valid serial number" do
     Current.stub_any_instance(:user, @user) do
-      get edit_ac_url(@ac)
+      get show_by_sn_url(serial_number: @ac.serial_number)
       assert_response :success
+      assert_select "#serial_number", @ac.serial_number
     end
   end
 
-  test "should update ac" do
+  test "should unable to look for an ac by an invalid serial number" do
     Current.stub_any_instance(:user, @user) do
-      patch ac_url(@ac), params: { ac: { firmware_version: Faker::Code.sin, registration_date: @ac.registration_date, serial_number: @ac.serial_number } }
-      assert_redirected_to ac_url(@ac)
-    end
-  end
-
-  test "should destroy ac" do
-    Current.stub_any_instance(:user, @user) do
-      assert_difference("Ac.count", -1) do
-        delete ac_url(@ac)
-      end
-
-      assert_redirected_to acs_url
+      serial_number = "invalid_serial"
+      get show_by_sn_url(serial_number: serial_number)
+      assert_response :success
+      assert_equal "Can not find the ac with #{serial_number}", flash[:notice]
     end
   end
 end
