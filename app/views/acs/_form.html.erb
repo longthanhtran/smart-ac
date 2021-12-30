@@ -1,0 +1,32 @@
+<%= form_with(model: ac) do |form| %>
+  <% if ac.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(ac.errors.count, "error") %> prohibited this ac from being saved:</h2>
+
+      <ul>
+        <% ac.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :serial_number, style: "display: block" %>
+    <%= form.text_field :serial_number %>
+  </div>
+
+  <div>
+    <%= form.label :registration_date, style: "display: block" %>
+    <%= form.date_field :registration_date, min: Date.today, value: Date.today %>
+  </div>
+
+  <div>
+    <%= form.label :firmware_version, style: "display: block" %>
+    <%= form.text_field :firmware_version %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

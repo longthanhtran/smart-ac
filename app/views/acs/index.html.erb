@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Acs</h1>
+
+<div id="acs">
+  <% @acs.each do |ac| %>
+    <%= render ac %>
+    <p>
+      <%= link_to "Show this ac", ac %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New ac", new_ac_path %>
