@@ -1,14 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Acs</h1>
+<%= form_with url: show_by_sn_path, method: 'get' do |form| %>
+  <%= form.label :serial_number, "search with serial number" %>
+  <%= form.text_field :serial_number, class: 'form-control', placeholder: '123abc' %>
+<% end %>
 
-<div id="acs">
+<div id="acs" class="mt-5">
   <% @acs.each do |ac| %>
-    <%= render ac %>
-    <p>
-      <%= link_to "Show this ac", ac %>
-    </p>
+    <%= ac.serial_number %> - <%= link_to "Show", ac %> <br />
   <% end %>
 </div>
-
-<%= link_to "New ac", new_ac_path %>
