@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @ac %>
+
+<div>
+  <%= link_to "Edit this ac", edit_ac_path(@ac) %> |
+  <%= link_to "Back to acs", acs_path %>
+
+  <%= button_to "Destroy this ac", @ac, method: :delete %>
+</div>

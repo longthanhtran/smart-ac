@@ -7,10 +7,9 @@ Rails.application.routes.draw do
   get 'sign_up', to: "registration#new"
   post 'sign_up', to: "registration#create"
 
-  get 'sessions/create'
-  get 'sessions/destroy'
-  get 'sessions/new'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  resources :acs
 
   namespace :api do
     resources :acs
